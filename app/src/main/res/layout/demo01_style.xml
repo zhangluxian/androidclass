@@ -2,6 +2,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:orientation="vertical"
+    android:id="@+id/demo_1_11"
     android:layout_height="match_parent">
 <Button
     android:layout_width="wrap_content"
@@ -14,4 +15,23 @@
         android:layout_width="200dp"
         android:layout_height="150dp"
         android:src="@raw/mg1" />
+    <EditText
+        android:layout_width="match_parent"
+        android:id="@+id/demo_1_email"
+        android:hint="please input email"
+        android:layout_height="wrap_content" />
+    <EditText
+        android:layout_width="match_parent"
+        android:id="@+id/demo_1_tel"
+        android:hint="please input tel"
+        android:layout_height="wrap_content" />
+    <TextView
+        android:layout_width="wrap_content"
+        android:id="@+id/demo_1_tv"
+        android:layout_height="wrap_content" />
+    <Button
+        android:layout_width="wrap_content"
+        android:text="MainActivity"
+        android:onClick="startMain"
+        android:layout_height="wrap_content" />
 </LinearLayout>

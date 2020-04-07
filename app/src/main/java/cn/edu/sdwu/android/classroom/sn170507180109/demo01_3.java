@@ -1,5 +1,10 @@
 package cn.edu.sdwu.android.classroom.sn170507180109;
 
+import android.app.AlertDialog;
+import android.app.Notification;
+import android.app.NotificationManager;
+import android.content.DialogInterface;
+import android.provider.Settings;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Gravity;
@@ -39,6 +44,53 @@ public class demo01_3 extends AppCompatActivity {
         toast.setGravity(Gravity.CENTER,0,0);
         toast.show();
 
+
+    }
+    public void notification(View view){
+        Notification.Builder builder=new Notification.Builder(this);
+        //在构造器中，完成通知各种属性的设置
+        builder.setContentTitle("title");
+        builder.setContentText("message");
+        builder.setWhen(System.currentTimeMillis());
+        builder.setSmallIcon(android.R.drawable.ic_input_delete);//引用系统资源
+        //调用build方法，完成构造
+        Notification notification=builder.build();
+        //使用Notification，发送通知
+        NotificationManager notificationManager=(NotificationManager)getSystemService(NOTIFICATION_SERVICE);
+        notificationManager.notify(101,notification);
+
+    }
+    public void cancel_notification(View view){
+        //使用Notification，发送通知
+        NotificationManager notificationManager=(NotificationManager)getSystemService(NOTIFICATION_SERVICE);
+        notificationManager.cancel(101);
+    }
+    public void alert_dialog(View view){
+        AlertDialog.Builder builder=new AlertDialog.Builder(this);
+        //在构造器中 设置对话框属性
+        builder.setTitle("title");
+        builder.setMessage("message");
+        builder.setIcon(android.R.drawable.ic_dialog_email);
+        builder.setPositiveButton("confirm", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
+                //添加点击按键后的处理
+                Toast.makeText(demo01_3.this,"confirm",Toast.LENGTH_SHORT).show();
+            }
+        });
+        builder.setNegativeButton("exit", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
+                Toast.makeText(demo01_3.this,"exit",Toast.LENGTH_SHORT).show();
+            }
+        });
+        builder.setNeutralButton("cancel", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
+                Toast.makeText(demo01_3.this,"cancel",Toast.LENGTH_SHORT).show();
+            }
+        });
+        builder.create().show();
 
     }
 }

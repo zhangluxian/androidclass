@@ -2,6 +2,7 @@ package cn.edu.sdwu.android.classroom.sn170507180109;
 
 import android.content.res.Resources;
 import android.content.res.TypedArray;
+import android.content.res.XmlResourceParser;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -13,6 +14,9 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.Toast;
+
+import org.xmlpull.v1.XmlPullParser;
+import org.xmlpull.v1.XmlPullParserException;
 
 public class demo01_4 extends AppCompatActivity {
 
@@ -52,8 +56,24 @@ public class demo01_4 extends AppCompatActivity {
         LinearLayout linearLayout=(LinearLayout)findViewById(R.id.demo01_4_11);
         registerForContextMenu(linearLayout);
 
-    }
+         XmlPullParser xmlPullParser=resourcces.getXml(R.xml.words);
+        try {
+            while (xmlPullParser.getEventType()!=XmlPullParser.END_DOCUMENT){
+                if (xmlPullParser.getEventType()==XmlPullParser.START_TAG){
+                    //判断一下是否是word元素（words直接跳过）
+                    if(xmlPullParser.getName().equals("word")){
+                        String word=xmlPullParser.getAttributeValue(0);
+                        Log.i(demo01_4.class.toString(),word);
 
+                    }
+                }
+                xmlPullParser.next();
+            }
+        }catch (Exception e){
+            Log.e(demo01_4.class.toString(),e.toString());
+        }
+
+    }
     @Override
     public void onCreateContextMenu(ContextMenu menu, View v, ContextMenu.ContextMenuInfo menuInfo) {
         super.onCreateContextMenu(menu, v, menuInfo);

@@ -3,7 +3,7 @@
     android:layout_width="match_parent"
     android:orientation="vertical"
     android:layout_height="match_parent">
-<RadioGroup
+    <RadioGroup
     android:layout_width="match_parent"
     android:id="@+id/demo01_1"
     android:layout_height="wrap_content">

@@ -21,12 +21,12 @@ public class demo01_7 extends AppCompatActivity {
         HashMap hashMap=new HashMap();
         hashMap.put("name","goods1");
         hashMap.put("price","50");
-        hashMap.put("img",R.drawable.mg1);
+        hashMap.put("img",R.drawable.mg3);
         list.add(hashMap);
         hashMap=new HashMap();
         hashMap.put("name","goods2");
         hashMap.put("price","500");
-        hashMap.put("img",R.drawable.mg4);
+        hashMap.put("img",R.drawable.mg3);
         list.add(hashMap);
         hashMap=new HashMap();
         hashMap.put("name","goods3");

@@ -1,5 +1,6 @@
 package cn.edu.sdwu.android.classroom.sn170507180109;
 
+import android.app.NotificationManager;
 import android.content.res.Resources;
 import android.content.res.TypedArray;
 import android.content.res.XmlResourceParser;
@@ -72,8 +73,12 @@ public class demo01_4 extends AppCompatActivity {
         }catch (Exception e){
             Log.e(demo01_4.class.toString(),e.toString());
         }
-
+        //使用NotificationManager取消通知
+        NotificationManager notificationManager=(NotificationManager) getSystemService(NOTIFICATION_SERVICE);
+        notificationManager.cancel(101);
     }
+
+
     @Override
     public void onCreateContextMenu(ContextMenu menu, View v, ContextMenu.ContextMenuInfo menuInfo) {
         super.onCreateContextMenu(menu, v, menuInfo);

@@ -3,7 +3,9 @@ package cn.edu.sdwu.android.classroom.sn170507180109;
 import android.app.AlertDialog;
 import android.app.Notification;
 import android.app.NotificationManager;
+import android.app.PendingIntent;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.provider.Settings;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -53,6 +55,11 @@ public class demo01_3 extends AppCompatActivity {
         builder.setContentText("message");
         builder.setWhen(System.currentTimeMillis());
         builder.setSmallIcon(android.R.drawable.ic_input_delete);//引用系统资源
+
+
+        Intent intent=new Intent(this,demo01_4.class);//点击通知之后，跳转界面
+        PendingIntent pendingintent=PendingIntent.getActivity(this,101,intent,PendingIntent.FLAG_CANCEL_CURRENT);//这个类代表代办的Intent
+        builder.setContentIntent(pendingintent);
         //调用build方法，完成构造
         Notification notification=builder.build();
         //使用Notification，发送通知
